@@ -9,6 +9,8 @@ class Avito < Scrapper
     t%C3%A9l%C3%A9phones-%C3%A0_vendre
     tablettes-%C3%A0_vendre
     ordinateurs_portables-%C3%A0_vendre
+    jeux_vid%C3%A9o_et_consoles-%C3%A0_vendre
+    appareils_photo_cameras-%C3%A0_vendre
   ]
 
   private

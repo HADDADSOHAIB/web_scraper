@@ -13,10 +13,12 @@ begin
   category_number = 0
   while category_number == 0
     puts 'Select a Category:'
-    puts '1. téléphones à vendre'
-    puts '2. tablettes à vendre'
-    puts '3. ordinateurs portables à vendre'
-    puts 'Select a category:(1, 2 or 3)'
+    puts '1. telephones for sale'
+    puts '2. tablettes for sale'
+    puts '3. Laptop for sale'
+    puts '4. Playstation and Xbox'
+    puts '5. Camera for sale'
+    puts 'Select a category:(1, 2, 3, 4 or 5)'
     category_number = gets.chomp.to_i
   end
   marocannonce.category_number = category_number

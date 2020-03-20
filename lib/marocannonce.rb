@@ -9,6 +9,8 @@ class Marocannonce < Scrapper
     telephones-portables--b359.html
     pc-bureaux-pc-portables-tablettes-b348.html
     pc-bureaux-pc-portables-tablettes-b348.html
+    jeux-video-consoles-b352
+    appareils-photos-camescopes-b350
   ]
 
   private

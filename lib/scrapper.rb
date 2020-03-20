@@ -39,7 +39,7 @@ class Scrapper
   end
 
   def write
-    file=File.new("data/file-#{self.class}-#{Time.now}.csv",'w')
+    file=File.new("data/category-#{@category_number}-#{self.class}-#{Time.now}.csv",'w')
 
     @listings.each do |item|
       file.write item[:date] + ","
