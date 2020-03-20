@@ -32,6 +32,7 @@ If you don't get that result, follow this [link](https://www.ruby-lang.org/en/do
 #### Use the tool:
 Start by Cloning this repository and cd inside the folder.
 Run the following command:
+- Run `gem install bundler` to install bundler.
 - Run `bundle install` to install Nokogiri and HTTParty Gems.
 - Run `ruby ./bin/main.rb`.
 Then follow the instructions provided in the console.
@@ -45,6 +46,7 @@ The name start with the category that you choose to scrap, then the source of da
 
 #### Run tests
 To run tests:
+- Run `gem install rspec` to install bundler.
 - Install rspec with `gem install rspec`.
 - Run `rspec` in Command Line.
 
