@@ -1,10 +1,52 @@
 # web_scraper
 
-This project is a Web scrapper in Ruby.
+This project is a Web scrapper in Ruby. This tool allows you to scrap some Moroccan online selling websites (Avito and Marocannonce) at the same time to collect data for the same category in all website. You will find more information about the project in the video below.
 
 ## Built With
 
 - Ruby
+- Nokogiri gem
+- Httparty gem
+
+## Video presentation
+
+[![Video](images/readme-images/9.png)](https://www.loom.com/share/e8aadaa923e54454961c52ea047bcf75)
+## How to use:
+
+First ruby should be install in your local enviroment:
+#### Enviroment set up requirements:
+Run the following commend:
+
+```
+$ ruby -v
+```
+
+You should a have a result similar to this:
+
+```
+ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
+```
+
+If you don't get that result, follow this [link](https://www.ruby-lang.org/en/documentation/installation/) and install Ruby in your local enviroment.
+
+#### Use the tool:
+Start by Cloning this repository and cd inside the folder.
+Run the following command:
+- Run `bundle install` to install Nokogiri and HTTParty Gems.
+- Run `ruby ./bin/main.rb`.
+Then follow the instructions provided in the console.
+![files folder](./assets/start.png)
+You start by choosing which category to scrap.
+![files folder](./assets/finish.png)
+Then you specify the number of pages you want to scrap in each source (Avito and Marocannonce), you can also sort the result either by price, city or keep the default (by date) and finaly save your result in a file.
+If you choose to save the file, go to data folder:
+![files folder](./assets/files.png)
+The name start with the category that you choose to scrap, then the source of data and finaly a date tag.
+
+#### Run tests
+To run tests:
+- Install rspec with `gem install rspec`.
+- Run `rspec` in Command Line.
 
 ## Authors
 
@@ -26,9 +68,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- [Microverse](https://www.microverse.org/).
 
 ## 📝 License
 

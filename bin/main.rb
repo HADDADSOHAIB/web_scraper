@@ -11,7 +11,7 @@ begin
   puts ''
   puts ''
   category_number = 0
-  while category_number == 0
+  while category_number.zero?
     puts 'Select a Category:'
     puts '1. telephones for sale'
     puts '2. tablettes for sale'
@@ -25,8 +25,8 @@ begin
   avito.category_number = category_number
 
   number_of_pages = 0
-  while number_of_pages == 0
-    puts 'How many pages do you want to srap:'
+  while number_of_pages.zero?
+    puts 'How many pages do you want to scrap:'
     number_of_pages = gets.chomp.to_i
   end
 
@@ -37,11 +37,11 @@ begin
   puts "#{marocannonce.listings.count} entries scrapped in Maroc annonces"
   puts "#{avito.listings.count} entries scrapped in Avito"
   option = 0
-  while option != 1 && option !=2 && option !=3
-    puts "Order the result by: (order by date is the default)"
-    puts "1. By city."
-    puts "2. By Price."
-    puts "3. default, by date"
+  while option != 1 && option != 2 && option != 3
+    puts 'Order the result by: (order by date is the default)'
+    puts '1. By city.'
+    puts '2. By Price.'
+    puts '3. default, by date'
     option = gets.chomp.to_i
   end
 
@@ -50,12 +50,10 @@ begin
 
   puts 'Do you want to save the file: (y/n)'
   option = gets.chomp
-  if option == 'y' || option == 'Y'
+  if %w[y Y].include? option
     marocannonce.write
     avito.write
   end
-
-
 rescue StandardError => e
   puts "Rescued: #{e.inspect}"
 end
