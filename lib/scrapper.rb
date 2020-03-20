@@ -27,6 +27,17 @@ class Scrapper
     end
   end
 
+  def order_by(option)
+    case option
+    when 1
+      @listings.sort_by { |item| item[:city] }
+    when 2
+      @listings.sort_by { |item| item[:price] }
+    else
+      @listings
+    end
+  end
+
   def write
     file=File.new("data/file-#{Time.now}",'w')
 
