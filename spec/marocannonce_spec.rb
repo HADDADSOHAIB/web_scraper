@@ -3,14 +3,14 @@ require_relative '../lib/marocannonce.rb'
 RSpec.describe Marocannonce do
   let(:marocannonce) do
     subject = Marocannonce.new
-    subject.category_number
+    subject.category_number = 1
     subject
   end
 
   describe '#initialize' do
     it 'initialize all variable instance' do
       expect(marocannonce.listings).to eql([])
-      expect(marocannonce.category_number).to eql(0)
+      expect(marocannonce.category_number).to eql(1)
     end
   end
 

@@ -10,7 +10,7 @@ RSpec.describe Avito do
   describe '#initialize' do
     it 'initialize all variable instance' do
       expect(avito.listings).to eql([])
-      expect(avito.category_number).to eql(0)
+      expect(avito.category_number).to eql(1)
     end
   end
 
