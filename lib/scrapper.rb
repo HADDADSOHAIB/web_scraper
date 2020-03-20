@@ -11,7 +11,7 @@ class Scrapper
   end
 
   def fetch_pages(number_pages)
-    return if number_pages <= 0
+    return nil if number_pages <= 0
 
     all_pages = fetch_number_of_all_pages
     range = (number_pages <= all_pages ? 1..number_pages : 1..number_pages)
