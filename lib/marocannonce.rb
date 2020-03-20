@@ -15,18 +15,19 @@ class Marocannonce < Scrapper
 
   def process_item(item)
     date = item.css('div.time').text.strip
-    # date = format_date(date)
+    date = format_date(date)
     title = item.css('div.holder h3').text.strip
     city = item.css('span.location').text.strip
     price = item.css('strong.price').text.strip.gsub('DH','').strip
-    link = item.css('div.holder h3 a')[0]['href'].strip
-
+    link_node = item.css('div.holder a')
+    p link_node
+    link = (link_node.empty? ? " " : link_node[0]['href'])
     { :date => date, :title => title, :city => city, :price => price, :link => link }
   end
 
-  # def format_date(date)
-  #   date = "#{date[0..-6]} #{date[-5...date.length]}"
-  # end
+  def format_date(date)
+    date = "#{date[0..-6].strip} #{date[-5...date.length]}"
+  end
 
   def fetch_page(page)
     response = HTTParty.get(URL + CATEGORIES[category_number - 1] + "?pge=#{page}")

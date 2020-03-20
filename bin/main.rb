@@ -1,7 +1,7 @@
 require_relative '../lib/avito.rb'
 require_relative '../lib/marocannonce.rb'
 
-begin
+# begin
   # scrapper = Avito.new
   marocannonce = Marocannonce.new
 
@@ -32,10 +32,11 @@ begin
   puts 'Scrapping finished'
   puts "#{marocannonce.listings.count} entries scrapped"
   option = 0
-  while option != 1 && option !=2
+  while option != 1 && option !=2 && option !=3
     puts "Order the result by: (order by date is the default)"
     puts "1. By city."
     puts "2. By Price."
+    puts "3. default, by date"
     option = gets.chomp.to_i
   end
 
@@ -48,6 +49,6 @@ begin
   end
 
 
-rescue StandardError => e
-  puts "Rescued: #{e.inspect}"
-end
+# rescue StandardError => e
+#   puts "Rescued: #{e.inspect}"
+# end
