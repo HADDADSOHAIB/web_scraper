@@ -5,7 +5,7 @@ class Scrapper
   attr_reader :listings
   attr_accessor :category_number
 
-  URL = 'https://www.avito.ma/fr/maroc/Z/'
+  URL = 'https://www.avito.ma/fr/maroc/'
   CATEGORIES = %w[
     t%C3%A9l%C3%A9phones-%C3%A0_vendre
     tablettes-%C3%A0_vendre
@@ -18,28 +18,25 @@ class Scrapper
   end
 
   def fetch_page(page)
-    page = Nokogiri::HTML(HTTParty.get(URL + CATEGORIES[category_number - 1] + "?o=#{page}"))
-    raise 'The link is not working properly, check if the link did not change in the orginal website!' if page.nil? || page.empty?
+    response = HTTParty.get(URL + CATEGORIES[category_number - 1] + "?o=#{page}")
+    raise 'Error' if response.body.nil? || response.body.empty?
 
+    page = Nokogiri::HTML(response)
     page.css(".item").each { |item| @listings << process_item(item) }
   end
 
   def fetch_pages(number_pages)
     return if number_pages <= 0
 
-    page = Nokogiri::HTML(HTTParty.get(URL + CATEGORIES[category_number - 1]))
-    raise 'The link is not working properly, check if the link did not change in the orginal website!' if page.nil? || page.empty?
+    response = HTTParty.get(URL + CATEGORIES[category_number - 1])
+    raise 'Error' if response.body.nil? || response.body.empty?
 
+    page = Nokogiri::HTML(response)
     item_per_page = page.css(".item").count
     number_listings = page.css("a#listing_tabs_all small").text.to_i
     all_pages = number_listings / item_per_page + 1
 
-    if number_pages <= all_pages
-      range = 1..number_pages
-    else number_pages > all_pages
-      range = 1..number_pages
-    end
-
+    range = (number_pages <= all_pages ? 1..number_pages : 1..number_pages)
     range.each do |page|
       fetch_page(page)
     end
@@ -55,7 +52,7 @@ class Scrapper
   end
 
   def write
-    file=File.new('file.csv','w')
+    file=File.new("data/file-#{Time.now}",'w')
 
     @listings.each do |item|
       file.write item[:date] + ","
