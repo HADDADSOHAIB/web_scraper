@@ -30,9 +30,9 @@ class Scrapper
   def order_by(option)
     case option
     when 1
-      @listings.sort_by { |item| item[:city] }
+      @listings = @listings.sort_by { |item| item[:city] }
     when 2
-      @listings.sort_by { |item| item[:price] }
+      @listings = @listings.sort_by { |item| item[:price].gsub(' ','').to_i }
     else
       @listings
     end

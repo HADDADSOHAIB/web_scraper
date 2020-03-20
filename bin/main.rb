@@ -29,6 +29,16 @@ begin
   scrapper.fetch_pages(number_of_pages)
   puts 'Scrapping finished'
   puts "#{scrapper.listings.count} entries scrapped"
+  option = 0
+  while option != 1 && option !=2
+    puts "Order the result by: (order by date is the default)"
+    puts "1. By city."
+    puts "2. By Price."
+    option = gets.chomp.to_i
+  end
+
+  scrapper.order_by(option)
+  
   puts 'Do you want to save the file: (y/n)'
   option = gets.chomp
   if option == 'y' || option == 'Y'
