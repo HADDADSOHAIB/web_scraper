@@ -9,6 +9,23 @@ RSpec.describe Marocannonce do
     end
   end
 
+    describe '#categry_number' do
+    it 'Set the category number to zero if the value is less then 0' do
+      marocannonce.category_number = -1
+      expect(marocannonce.category_number).to eql(0)
+    end
+
+    it 'Set the category number to zero if the value is more then CATEGORIES size' do
+      marocannonce.category_number = Marocannonce::CATEGORIES.size+1
+      expect(marocannonce.category_number).to eql(0)
+    end
+
+    it 'Set the category number to the correct value' do
+      marocannonce.category_number = Marocannonce::CATEGORIES.size-1
+      expect(marocannonce.category_number).to eql(Marocannonce::CATEGORIES.size-1)
+    end
+  end
+
   describe '#fetch_pages' do
     it 'return nil if number of pages <= 0' do
       marocannonce.category_number = 1

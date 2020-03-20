@@ -9,6 +9,23 @@ RSpec.describe Avito do
     end
   end
 
+  describe '#categry_number' do
+    it 'Set the category number to zero if the value is less then 0' do
+      avito.category_number = -1
+      expect(avito.category_number).to eql(0)
+    end
+
+    it 'Set the category number to zero if the value is more then CATEGORIES size' do
+      avito.category_number = Avito::CATEGORIES.size+1
+      expect(avito.category_number).to eql(0)
+    end
+
+    it 'Set the category number to the correct value' do
+      avito.category_number = Avito::CATEGORIES.size-1
+      expect(avito.category_number).to eql(Avito::CATEGORIES.size-1)
+    end
+  end
+
   describe '#fetch_pages' do
     it 'return nil if number of pages <= 0' do
       avito.category_number = 1

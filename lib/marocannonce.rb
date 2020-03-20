@@ -44,3 +44,4 @@ class Marocannonce < Scrapper
     number_listings = page.css(".current_li").text.to_i
   end
 end
+

@@ -2,12 +2,19 @@ require 'httparty'
 require 'nokogiri'
 
 class Scrapper
-  attr_reader :listings
-  attr_accessor :category_number
+  attr_reader :listings, :category_number
 
   def initialize
     @listings = []
     @category_number = 0
+  end
+
+  def category_number=(value)
+    if value > 0 && value <= self.class::CATEGORIES.size
+      @category_number = value
+    else
+      @category_number = 0
+    end
   end
 
   def fetch_pages(number_pages)
