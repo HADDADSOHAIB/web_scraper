@@ -20,7 +20,6 @@ class Marocannonce < Scrapper
     city = item.css('span.location').text.strip
     price = item.css('strong.price').text.strip.gsub('DH','').strip
     link_node = item.css('div.holder a')
-    p link_node
     link = (link_node.empty? ? " " : link_node[0]['href'])
     { :date => date, :title => title, :city => city, :price => price, :link => link }
   end

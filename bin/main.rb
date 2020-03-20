@@ -1,8 +1,8 @@
 require_relative '../lib/avito.rb'
 require_relative '../lib/marocannonce.rb'
 
-# begin
-  # scrapper = Avito.new
+begin
+  avito = Avito.new
   marocannonce = Marocannonce.new
 
   puts ''
@@ -20,6 +20,7 @@ require_relative '../lib/marocannonce.rb'
     category_number = gets.chomp.to_i
   end
   marocannonce.category_number = category_number
+  avito.category_number = category_number
 
   number_of_pages = 0
   while number_of_pages == 0
@@ -29,8 +30,10 @@ require_relative '../lib/marocannonce.rb'
 
   puts 'Scrapping start ...'
   marocannonce.fetch_pages(number_of_pages)
+  avito.fetch_pages(number_of_pages)
   puts 'Scrapping finished'
-  puts "#{marocannonce.listings.count} entries scrapped"
+  puts "#{marocannonce.listings.count} entries scrapped in Maroc annonces"
+  puts "#{avito.listings.count} entries scrapped in Avito"
   option = 0
   while option != 1 && option !=2 && option !=3
     puts "Order the result by: (order by date is the default)"
@@ -41,14 +44,16 @@ require_relative '../lib/marocannonce.rb'
   end
 
   marocannonce.order_by(option)
+  avito.order_by(option)
 
   puts 'Do you want to save the file: (y/n)'
   option = gets.chomp
   if option == 'y' || option == 'Y'
     marocannonce.write
+    avito.write
   end
 
 
-# rescue StandardError => e
-#   puts "Rescued: #{e.inspect}"
-# end
+rescue StandardError => e
+  puts "Rescued: #{e.inspect}"
+end
