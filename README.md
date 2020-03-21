@@ -1,6 +1,6 @@
 # web_scraper
 
-This project is a Web scrapper in Ruby. This tool allows you to scrap some Moroccan online selling websites (Avito and Marocannonce) at the same time to collect data for the same category in all website. You will find more information about the project in the video below.
+This project is a Web scraper in Ruby. This tool allows you to scrap some Moroccan online selling websites (Avito and Marocannonce) at the same time to collect data for the same category in all website. You will find more information about the project in the video below.
 
 ## Built With
 
