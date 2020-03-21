@@ -72,20 +72,4 @@ RSpec.describe Avito do
       expect(avito.listings).to eql(list_before)
     end
   end
-
-  describe '#write' do
-    it 'write a new file when called' do
-      File.stub(:new)
-      expect(File).to receive(:new)
-      avito.write
-    end
-
-    it 'write a new file when called' do
-      File.stub(:write)
-      expect(File).to receive(:write).exactly(avito.listings.size).times
-      avito.category_number = 1
-      avito.fetch_pages(1)
-      avito.write
-    end
-  end
 end

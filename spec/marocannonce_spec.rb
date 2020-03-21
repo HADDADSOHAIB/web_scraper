@@ -65,19 +65,4 @@ RSpec.describe Marocannonce do
       expect(marocannonce.listings).to eql(list_before)
     end
   end
-
-  describe '#write' do
-    it 'write a new file when called' do
-      File.stub(:new)
-      expect(File).to receive(:new)
-      marocannonce.write
-    end
-
-    it 'write a new file when called' do
-      File.stub(:write)
-      expect(File).to receive(:write).exactly(marocannonce.listings.size).times
-      marocannonce.fetch_pages(1)
-      marocannonce.write
-    end
-  end
 end
