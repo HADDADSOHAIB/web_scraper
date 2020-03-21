@@ -43,11 +43,12 @@ Then you specify the number of pages you want to scrap in each source (Avito and
 If you choose to save the file, go to data folder:
 ![files folder](./asset/files.png)
 The name start with the category that you choose to scrap, then the source of data and finaly a date tag.
-
+![result file](./asset/result.png)
+If you open one of those files, you will find data formatted in the following way.
 #### Run tests
 To run tests:
-- Run `gem install rspec` to install bundler.
-- Install rspec with `gem install rspec`.
+- Run `gem install bundler` to install bundler.
+- Run `bundle install` to install RSpec, Nokogiri and HTTParty Gems.
 - Run `rspec` in Command Line.
 
 ## Authors
