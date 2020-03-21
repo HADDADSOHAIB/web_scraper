@@ -1,8 +1,8 @@
 require 'httparty'
 require 'nokogiri'
-require_relative 'scrapper.rb'
+require_relative 'scraper.rb'
 
-class Marocannonce < Scrapper
+class Marocannonce < Scraper
   URL = 'https://www.marocannonces.com/maroc/'.freeze
   CATEGORIES = %w[
     telephones-portables--b359.html

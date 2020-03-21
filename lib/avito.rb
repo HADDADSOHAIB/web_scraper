@@ -1,8 +1,8 @@
 require 'httparty'
 require 'nokogiri'
-require_relative 'scrapper.rb'
+require_relative 'scraper.rb'
 
-class Avito < Scrapper
+class Avito < Scraper
   URL = 'https://www.avito.ma/fr/maroc/'.freeze
   CATEGORIES = %w[
     t%C3%A9l%C3%A9phones-%C3%A0_vendre

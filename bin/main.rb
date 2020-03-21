@@ -6,7 +6,7 @@ begin
   marocannonce = Marocannonce.new
 
   puts ''
-  puts 'Hello, welcome to the Scrapper.'
+  puts 'Hello, welcome to the Scraper.'
   puts '-------------------------------'
   puts ''
   puts ''
@@ -30,12 +30,12 @@ begin
     number_of_pages = gets.chomp.to_i
   end
 
-  puts 'Scrapping start ...'
+  puts 'Scraping start ...'
   marocannonce.fetch_pages(number_of_pages)
   avito.fetch_pages(number_of_pages)
-  puts 'Scrapping finished'
-  puts "#{marocannonce.listings.count} entries scrapped in Maroc annonces"
-  puts "#{avito.listings.count} entries scrapped in Avito"
+  puts 'Scraping finished'
+  puts "#{marocannonce.listings.count} entries scraped in Maroc annonces"
+  puts "#{avito.listings.count} entries scraped in Avito"
   option = 0
   while option != 1 && option != 2 && option != 3
     puts 'Order the result by: (order by date is the default)'

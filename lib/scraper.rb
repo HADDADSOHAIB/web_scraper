@@ -1,4 +1,4 @@
-class Scrapper
+class Scraper
   attr_reader :listings, :category_number
 
   def initialize
