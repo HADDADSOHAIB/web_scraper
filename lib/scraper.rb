@@ -34,6 +34,13 @@ class Scraper
   def write
     file = File.new("data/category-#{@category_number}-#{self.class}-#{Time.now}.csv", 'w')
 
+      file.write 'Date,'
+      file.write 'Title,'
+      file.write 'City,'
+      file.write 'Price,'
+      file.write 'Link,'
+      file.puts
+
     @listings.each do |item|
       file.write item[:date] + ','
       file.write item[:title] + ','
